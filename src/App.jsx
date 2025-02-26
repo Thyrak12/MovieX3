@@ -5,15 +5,15 @@ import Header from './Header'
 import Footer from './Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
-
-
 import './App.css'
+import Carousel from './Carousel'
 
 function App() {
 
   return (
     <>
       <Header />
+      <Carousel />
       <Footer />
     </>
   )
