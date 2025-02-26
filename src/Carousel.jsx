@@ -5,7 +5,7 @@ import './carousel.css'; // Import the CSS file
 
 function DarkVariantExample() {
   return (
-    <Carousel>
+    <Carousel className="mt-0">
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -35,7 +35,7 @@ function DarkVariantExample() {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h5>Syudy Group</h5>
+          <h5>Study Group</h5>
           <p>
             See what this boy will change the school!
           </p>
