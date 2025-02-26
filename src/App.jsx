@@ -1,12 +1,15 @@
+import { useState } from 'react'
 import './App.css'
 import Carousel from './Carousel'
 
 function App() {
 
   return (
-    <div>
+    <>
+      <Header />
       <Carousel />
-    </div>
+      <Footer />
+    </>
   )
 }
 
