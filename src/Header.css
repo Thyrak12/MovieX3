@@ -50,7 +50,8 @@
     background: rgba(255, 255, 255, 0.1);
     /* border: 1px solid rgba(255, 215, 0, 0.3); */
     color: white !important;
-    min-width: 200px;
+    /* min-width: 200px; */
+    height: 40px;
 }
 
 #form_search:focus {
@@ -87,6 +88,7 @@
 
 .bi {
     filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.3));
+    margin-right: 5px;
 }
 
 .toast {
@@ -95,3 +97,14 @@
     backdrop-filter: blur(5px);
     color: white;
 }
+
+#right_nav{
+    display: flex;
+    margin-top: 20px;
+}
+
+#form_search::placeholder {
+    color: white; /* Change this to any color you want */
+    opacity: 1; /* Ensure full visibility */
+}
+

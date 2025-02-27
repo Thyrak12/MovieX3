@@ -49,71 +49,69 @@ export default function Header() {
               <Nav.Link href="#">Favorite</Nav.Link>
             </Nav>
 
-            {/* Notification Button */}
-            <Button
-              id="button"
-              style={{ outline: "none", border: "none" }}
-              variant="outline-light"
-              onClick={() => setShowToast(true)}
-            >
-              <i className="bi bi-bell-fill"></i>
-            </Button>
-
-            {/* User Profile Dropdown */}
-            <Dropdown
-              show={showDropdown}
-              onToggle={(isOpen) => setShowDropdown(isOpen)}
-            >
-              <Dropdown.Toggle
-                as={Button}
-                id="button"
-                variant="outline-light"
-                style={{ outline: "none", border: "none", background: "none" }}
-                onClick={() => setShowDropdown(!showDropdown)}
-              >
-                <i className="bi bi-person-circle"></i>
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu align="end">
-                <Dropdown.Item href="#profile">Profile</Dropdown.Item>
-                <Dropdown.Item href="#settings">Settings</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item href="#logout">Logout</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            {/* Search Form */}
-            <Form
-              className="d-flex"
-              id="form_button"
-              onMouseOver={() => setIsFormHovered(true)} // Set form visible on hover
-              onMouseOut={() => setIsFormHovered(false)} // Hide form when mouse leaves
-            >
-              <Form.Control
-                id="form_search"
-                style={{
-                  display: isFormHovered ? "block" : "none",
-                  // Add placeholder styling
-                  '::placeholder': {
-                    color: 'rgba(255, 255, 255, 1) '
-                  }
-                }} // Show when hovering over form container
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-
+            <div id="right_nav">
+              {/* Notification Button */}
               <Button
                 id="button"
                 style={{ outline: "none", border: "none" }}
                 variant="outline-light"
-                onMouseOver={() => setIsFormHovered(true)}
-                onMouseOut={() => setIsFormHovered(false)}
+                onClick={() => setShowToast(true)}
               >
-                <i className="bi bi-search"></i>
+                <i className="bi bi-bell-fill"></i>
               </Button>
-            </Form>
+
+              {/* User Profile Dropdown */}
+              <Dropdown
+                show={showDropdown}
+                onToggle={(isOpen) => setShowDropdown(isOpen)}
+              >
+                <Dropdown.Toggle
+                  as={Button}
+                  id="button"
+                  variant="outline-light"
+                  style={{ outline: "none", border: "none", background: "none" }}
+                  onClick={() => setShowDropdown(!showDropdown)}
+                >
+                  <i className="bi bi-person-circle"></i>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu align="end">
+                  <Dropdown.Item href="#profile">Profile</Dropdown.Item>
+                  <Dropdown.Item href="#settings">Settings</Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item href="#logout">Logout</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+
+              {/* Search Form */}
+              <Form
+                className="d-flex"
+                id="form_button"
+                onMouseOver={() => setIsFormHovered(true)} // Set form visible on hover
+                onMouseOut={() => setIsFormHovered(false)} // Hide form when mouse leaves
+              >
+                <Form.Control
+                  id="form_search"
+                  style={{
+                    display: isFormHovered ? "block" : "none"
+                  }}
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                />
+
+                <Button
+                  id="button"
+                  style={{ outline: "none", border: "none" }}
+                  variant="outline-light"
+                  onMouseOver={() => setIsFormHovered(true)}
+                  onMouseOut={() => setIsFormHovered(false)}
+                >
+                  <i className="bi bi-search"></i>
+                </Button>
+              </Form>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
