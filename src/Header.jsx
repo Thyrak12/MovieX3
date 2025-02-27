@@ -95,7 +95,7 @@ export default function Header() {
                   display: isFormHovered ? "block" : "none",
                   // Add placeholder styling
                   '::placeholder': {
-                    color: 'rgba(255, 255, 255, 0.6)'
+                    color: 'rgba(255, 255, 255, 1) '
                   }
                 }} // Show when hovering over form container
                 type="search"
