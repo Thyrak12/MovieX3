@@ -11,6 +11,8 @@ function App() {
       <Header />
       <Carousel />
       <Slide />
+      <Slide />
+      <Slide />
       <Footer />
     </>
   )

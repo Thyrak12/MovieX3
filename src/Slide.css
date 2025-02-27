@@ -1,26 +1,26 @@
-.card-body{
+.card-body {
     background-color: #393a3b;
     color: white;
 }
 
-.card{
+.card {
     border-color: #393a3b;
     box-shadow: black;
     border-radius: 0;
     border: none;
 }
 
-.card-img{
+.card-img {
     border-radius: 0;
-    object-position: center; 
+    object-position: center;
 }
 
 .slide-container {
     padding: 20px 50px 20px 50px;
-    
+
 }
 
-button{
+button {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -29,7 +29,23 @@ button{
     font-size: 25px;
 
 }
-.card-container{
+
+button:hover {
+    background-color: #393a3b;
+    border-radius: 7px;
+}
+
+.card-container {
     display: flex;
     gap: 20px;
+}
+
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    background-color: transparent;
+    font-size: 20px;
+    /* Arrow size */
+    color: white
+    
 }
