@@ -1,19 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import Carousel from './Carousel'
-import Header from './Header'
-import Footer from './Footer'
-import Slide from './Slide'
+import Home from './Home'
 function App() {
 
   return (
     <>
-      <Header />
-      <Carousel />
-      <Slide />
-      <Slide />
-      <Slide />
-      <Footer />
+      <Home />
     </>
   )
 }
