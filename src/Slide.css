@@ -1,0 +1,35 @@
+.card-body{
+    background-color: #393a3b;
+    color: white;
+}
+
+.card{
+    border-color: #393a3b;
+    box-shadow: black;
+    border-radius: 0;
+    border: none;
+}
+
+.card-img{
+    border-radius: 0;
+    object-position: center; 
+}
+
+.slide-container {
+    padding: 20px 50px 20px 50px;
+    
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 15px;
+    font-size: 25px;
+
+}
+.card-container{
+    display: flex;
+    gap: 20px;
+}
