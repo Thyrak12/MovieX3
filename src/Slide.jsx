@@ -37,7 +37,7 @@ function SlideMovie() {
                     navigation
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}>
-                    <SwiperSlide>
+                    <SwiperSlide >
                         {MovieCard("https://comicbook.com/wp-content/uploads/sites/4/2024/12/loki-season-2-key-art-header.jpg?resize=2000,1125", "Loki", "Loki")}
                     </SwiperSlide>
                     <SwiperSlide>
