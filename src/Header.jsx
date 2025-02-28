@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <>
       <header id="navbar">
-        <Navbar expand="lg" className="custom-navbar">
+        <Navbar expand="lg" className="custom-navbar" >
           <Container style={{ backgroundColor: "none" }}>
             <Navbar.Brand href="#" style={{ fontSize: "28px" }}>
               MovieX3
