@@ -8,11 +8,7 @@ header {
     top: 0;
     /* important to use z-index to Ensures it stays above other content  */
     z-index: 1000;
-<<<<<<< Updated upstream
     background-color: black;
-=======
-    background-color: #1a1a1a;
->>>>>>> Stashed changes
 }
 
 
