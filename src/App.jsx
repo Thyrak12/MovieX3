@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { Routes, Route } from 'react-router-dom';
 import Movie from './Movie';
+import LoginForm from './loginForm';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Loki" element={<Movie />} />
+        <Route path="/loginForm" element={<LoginForm />} />
       </Routes>
       <Footer />
     </div>
