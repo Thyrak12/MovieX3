@@ -13,6 +13,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Loki" element={<Movie />} />
+<<<<<<< Updated upstream
+=======
+        <Route path="/login" element={<LoginForm />} />
+>>>>>>> Stashed changes
       </Routes>
       <Footer />
     </>
