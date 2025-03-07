@@ -1,18 +1,17 @@
 import Carousel from './Carousel'
-import Lastest from './Lastest'
-import Action from './Action'
-import Drama from './Drama'
-import SciFi from './SciFi'
+import Slide from './Slider'
+import { dataMovie } from './Data'
 
 function Home() {
 
   return (
     <>
       <Carousel />
-      <Lastest />
-      <Action />
-      <Drama />
-      <SciFi />
+      {
+        dataMovie.map((data) => {
+          return <Slide key={data.id} movieNames={data}/>
+        })
+      }
     </>
   )
 }
