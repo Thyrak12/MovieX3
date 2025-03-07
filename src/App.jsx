@@ -1,9 +1,9 @@
 import './App.css';
-import Home from './Home';
-import Header from './Header';
-import Footer from './Footer';
+import Home from './components/Home';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import { Routes, Route } from 'react-router-dom';
-import Movie from './Movie';
+import Movie from './components/Movie';
 
 function App() {
 
@@ -13,10 +13,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Loki" element={<Movie />} />
-<<<<<<< Updated upstream
-=======
-        <Route path="/login" element={<LoginForm />} />
->>>>>>> Stashed changes
       </Routes>
       <Footer />
     </>
