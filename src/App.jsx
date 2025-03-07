@@ -11,7 +11,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:name" element={<Movie />} /> {/* Dynamic Route */}
+        <Route path="/:name" element={<Movie />} />
+        {/* Just add new routes below don't edit all */}
       </Routes>
       <Footer />
     </>

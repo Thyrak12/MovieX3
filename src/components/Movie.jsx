@@ -1,3 +1,5 @@
+// No editting
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -54,3 +56,5 @@ const Movie = () => {
 };
 
 export default Movie;
+
+// No editting

@@ -1,3 +1,5 @@
+// No edditing
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -80,3 +82,5 @@ const CustomMovies = ({ movieNames }) => {
 };
 
 export default CustomMovies;
+
+// No edditing

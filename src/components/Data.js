@@ -1,3 +1,5 @@
+// Change movie title if need 
+
 export const dataMovie = [
     {
         id : 'Latest Movies',

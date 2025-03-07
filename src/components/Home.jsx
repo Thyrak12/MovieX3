@@ -6,12 +6,12 @@ function Home() {
 
   return (
     <>
-      <Carousel />
+      <Carousel /> {/* No editting */}
       {
         dataMovie.map((data) => {
           return <Slide key={data.id} movieNames={data}/>
         })
-      }
+      } {/* No editting */}
     </>
   )
 }
