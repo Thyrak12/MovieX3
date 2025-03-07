@@ -1,7 +1,7 @@
 export const dataMovie = [
     {
         id : 'Latest Movies',
-        title : ['Flash','Arrow','Avenger', 'Game of Thrones', 'Lucifer', 'Stranger Things', 'Squid Game', 'Arrow', 'Avenger', 'Spider-Man']
+        title : ['Loki','Arrow','Avenger', 'Game of Thrones', 'Lucifer', 'Stranger Things', 'Squid Game', 'Arrow', 'Avenger', 'Spider-Man']
     },
     {
         id : 'Action Movies',

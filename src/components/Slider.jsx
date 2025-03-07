@@ -3,12 +3,13 @@ import axios from 'axios';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './Swipe.css';
 
-const MovieCard = ({ url, title }) => (
-  <div className='card-container'>
+const MovieCard = ({ url, title , onClick}) => (
+  <div className='card-container' onClick={onClick} style={{ cursor: 'pointer' }}>
     <Card style={{ width: '15rem' }} className='card'>
       <Card.Img className='card-img' variant="top" src={url} />
       <Card.Body className='card-body'>
@@ -19,6 +20,7 @@ const MovieCard = ({ url, title }) => (
 );
 
 const CustomMovies = ({ movieNames }) => {
+  const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
   const { id, title } = movieNames; // Destructure the object
 
@@ -42,8 +44,12 @@ const CustomMovies = ({ movieNames }) => {
 
   return (
     <div className='slide-container bg-dark'>
-      <button className='button-movie'>{id} ➩</button>
-      <div className='card-container'>
+      {/* Navigate to a dynamic category page */}
+      <button className='button-movie'>
+        {id} ➩
+      </button>
+
+      <div className='card-container' >
         <Swiper
           style={{ "--swiper-navigation-size": "30px" }}
           modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -61,7 +67,7 @@ const CustomMovies = ({ movieNames }) => {
         >
           {movies.map((movie) => (
             <SwiperSlide key={movie.id}>
-              <MovieCard
+              <MovieCard onClick={() => navigate(`/${movie.name}`)}
                 url={movie.image?.medium || 'https://via.placeholder.com/300'}
                 title={movie.name}
               />
