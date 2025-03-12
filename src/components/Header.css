@@ -8,11 +8,18 @@ header {
     top: 0;
     /* important to use z-index to Ensures it stays above other content  */
     z-index: 1000;
-    background-color: black;
 }
 
+.custom-navbar {
+    background: transparent !important;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+  }
 
-/* not working  since the header go behind the content so the content block that why. */​
+
+/* not working  since the header go behind the content so the content block that why. */
+​
 /* #navbar {
     position: sticky;
     top: 0px;
