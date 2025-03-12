@@ -21,6 +21,7 @@ export default function Header() {
 
   if (window.scrollY > 50) {
     setIsScrolled(true);
+    
   } else {
     setIsScrolled(false);
   }
