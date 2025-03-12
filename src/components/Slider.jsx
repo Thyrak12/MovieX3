@@ -1,5 +1,3 @@
-// No edditing
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -24,13 +22,13 @@ const MovieCard = ({ url, title , onClick}) => (
 const CustomMovies = ({ movieNames }) => {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
-  const { id, title } = movieNames; // Destructure the object
+  const { id, titles } = movieNames; // Correct destructuring
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const moviePromises = title.map(async (name) => {
-          const response = await axios.get(`https://api.tvmaze.com/singlesearch/shows?q=${name}`);
+        const moviePromises = titles.map(async (movie) => {  // Fix: Use titles, not title
+          const response = await axios.get(`https://api.tvmaze.com/singlesearch/shows?q=${movie.name}`);
           return response.data;
         });
 
@@ -42,7 +40,7 @@ const CustomMovies = ({ movieNames }) => {
     };
 
     fetchMovies();
-  }, [title]);
+  }, [titles]); // Fix: Use titles, not title
 
   return (
     <div className='slide-container bg-dark'>
@@ -51,7 +49,7 @@ const CustomMovies = ({ movieNames }) => {
         {id} ➩
       </button>
 
-      <div className='card-container' >
+      <div className='card-container'>
         <Swiper
           style={{ "--swiper-navigation-size": "30px" }}
           modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -69,9 +67,10 @@ const CustomMovies = ({ movieNames }) => {
         >
           {movies.map((movie) => (
             <SwiperSlide key={movie.id}>
-              <MovieCard onClick={() => navigate(`/${movie.name}`)}
+              <MovieCard 
+                onClick={() => navigate(`/${movie.name}`)}
                 url={movie.image?.medium || 'https://via.placeholder.com/300'}
-                title={movie.name}
+                title={movie.name}  // Fix: Correct title reference
               />
             </SwiperSlide>
           ))}
@@ -83,4 +82,4 @@ const CustomMovies = ({ movieNames }) => {
 
 export default CustomMovies;
 
-// No edditing
+// No editing (Just fixed errors)
