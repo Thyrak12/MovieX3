@@ -1,13 +1,14 @@
-// No editting
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 import './Movie.css';
+import { dataMovie } from './Data.js'; // Import movie data
 
 const Movie = () => {
   const { name } = useParams(); // Get movie name from URL
   const [movie, setMovie] = useState(null);
+  const [trailerUrl, setTrailerUrl] = useState(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -19,6 +20,11 @@ const Movie = () => {
       }
     };
     fetchMovie();
+
+    // Find the correct YouTube URL from dataMovie
+    const foundMovie = dataMovie.flatMap((category) => category.titles).find((m) => m.name === name);
+    setTrailerUrl(foundMovie?.url || 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'); // Default trailer if not found
+
   }, [name]);
 
   if (!movie) {
@@ -38,14 +44,14 @@ const Movie = () => {
             <img src={movie.image?.original} alt={movie.name} />
           </div>
           <div className='Box2'>
-            <img src="https://media.cnn.com/api/v1/images/stellar/prod/210601135448-loki-disney.jpg?q=x_308,y_0,h_1047,w_1860,c_crop/h_833,w_1480" alt={movie.name} />
+            <ReactPlayer url={trailerUrl} width='100%' height='100%' />
           </div>
         </div>
 
         <div className='Card-Info'>
           <h3>{movie.name}</h3>
           <h5>Release Date: {movie.premiered}</h5>
-          <h5>Rating: {movie.rating.average}</h5>
+          <h5>Rating: {movie.rating?.average || 'N/A'}</h5>
           <hr />
           <h5>Summary:</h5>
           <p>{removeHTMLTags(movie.summary)}</p>
@@ -56,5 +62,3 @@ const Movie = () => {
 };
 
 export default Movie;
-
-// No editting
