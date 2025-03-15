@@ -18,15 +18,6 @@ export default function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
-<<<<<<< HEAD
-  if (window.scrollY > 50) {
-    setIsScrolled(true);
-    
-  } else {
-    setIsScrolled(false);
-  }
-};
-=======
   return (
     <>
       <Navbar expand="lg" className="custom-navbar navbar-dark">
@@ -39,7 +30,6 @@ export default function Header() {
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
               <Nav.Link href="#action1">Home</Nav.Link>
               <Nav.Link href="#action2">Latest</Nav.Link>
->>>>>>> be486d3a42ddee566fdd9e5bfd1870a1b60734fd
 
               <NavDropdown title="Categories" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
@@ -97,27 +87,6 @@ export default function Header() {
                   aria-label="Search"
                 />
 
-<<<<<<< HEAD
-    <ToastContainer position="top-end" className="p-3">
-      <Toast
-        show={showToast}
-        onClose={() => setShowToast(false)}
-        delay={3000}
-        autohide
-        bg="light"
-      >
-        <Toast.Header>
-          <i className="bi bi-bell-fill me-2 text-warning"></i>
-          <strong className="me-auto">Notifications</strong>
-          <small>Just now</small>
-        </Toast.Header>
-        <Toast.Body>You have new notifications!</Toast.Body>
-      </Toast>
-    </ToastContainer>
-  </>
-);
-
-=======
                 <Button
                   id="button"
                   style={{ outline: "none", border: "none" }}
@@ -152,4 +121,3 @@ export default function Header() {
     </>
   );
 }
->>>>>>> be486d3a42ddee566fdd9e5bfd1870a1b60734fd
