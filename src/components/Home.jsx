@@ -7,7 +7,6 @@ function Home() {
 
   return (
     <>
-      <Header/>
       <Carousel /> {/* No editting */}
       {
         dataMovie.map((data) => {
