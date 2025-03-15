@@ -1,26 +1,54 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Dropdown from "react-bootstrap/Dropdown";
-import Toast from "react-bootstrap/Toast";
-import ToastContainer from "react-bootstrap/ToastContainer";
+import { useState, useEffect } from "react";
+import {
+  Button,
+  Container,
+  Form,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Dropdown,
+  Toast,
+  ToastContainer,
+} from "react-bootstrap";
 import "./Header.css";
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function Header() {
   const [isFormHovered, setIsFormHovered] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const location = useLocation();
+
+  // Handle scroll event to update header styles
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // If user scrolls more than 50px, the navbar will appear
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Dynamically adjust navbar style based on scroll position and current route
+  const navbarStyle = {
+    transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+    background: isScrolled ? "#212529" : "transparent",
+    position: "fixed",
+    width: "100%",
+    top: 0,
+    zIndex: 1000,
+    boxShadow: isScrolled ? "0px 4px 10px rgba(0, 0, 0, 0.2)" : "none",
+    display: (location.pathname === "/" || isScrolled) ? "block" : "none", // Show on Home page or when scrolled
+  };
 
   return (
     <>
-      <Navbar expand="lg" className="custom-navbar navbar-dark">
+      <Navbar expand="lg" className="navbar-dark" style={navbarStyle}>
         <Container>
           <Navbar.Brand href="#" style={{ fontSize: "28px" }}>
             MovieX3
@@ -59,7 +87,6 @@ export default function Header() {
                   id="button"
                   variant="outline-light"
                   style={{ outline: "none", border: "none", background: "none" }}
-                  onClick={() => setShowDropdown(!showDropdown)}
                 >
                   <i className="bi bi-person-circle"></i>
                 </Dropdown.Toggle>
@@ -91,8 +118,6 @@ export default function Header() {
                   id="button"
                   style={{ outline: "none", border: "none" }}
                   variant="outline-light"
-                  onMouseOver={() => setIsFormHovered(true)}
-                  onMouseOut={() => setIsFormHovered(false)}
                 >
                   <i className="bi bi-search"></i>
                 </Button>

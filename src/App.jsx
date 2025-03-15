@@ -8,6 +8,7 @@ import Movie from './components/Movie';
 function App() {
   return (
     <>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:name" element={<Movie />} />

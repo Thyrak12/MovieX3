@@ -5,6 +5,8 @@ import ReactPlayer from 'react-player';
 import './Movie.css';
 import { dataMovie } from './Data.js'; // Import movie data
 
+
+
 const Movie = () => {
   const { name } = useParams(); // Get movie name from URL
   const [movie, setMovie] = useState(null);

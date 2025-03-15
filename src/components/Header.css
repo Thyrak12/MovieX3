@@ -3,28 +3,6 @@
     display: none !important;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    /* important to use z-index to Ensures it stays above other content  */
-    z-index: 1000;
-}
-
-.custom-navbar {
-    background: transparent !important;
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-  }
-
-
-/* not working  since the header go behind the content so the content block that why. */
-​
-/* #navbar {
-    position: sticky;
-    top: 0px;
-} */
-
 .custom-navbar {
     /* background: linear-gradient(145deg, #1a1a1a, #2d2d2d) !important; */
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
