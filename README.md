@@ -15,4 +15,4 @@ To install the site:
     npm install axios
     npm install react-player
     npm i swiper
-To run the site just use `npm run dev`
+To run the site, just use: `npm run dev`
