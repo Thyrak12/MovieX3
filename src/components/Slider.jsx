@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
@@ -52,10 +52,11 @@ const CustomMovies = ({ movieNames }) => {
       <div className='card-container'>
         <Swiper
           style={{ "--swiper-navigation-size": "30px" }}
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          modules={[Navigation, Pagination, Scrollbar, A11y, Mousewheel]}
           spaceBetween={-10}
           slidesPerView={6}
           navigation
+          mousewheel
           breakpoints={{
             320: { slidesPerView: 1 },
             480: { slidesPerView: 2 },
