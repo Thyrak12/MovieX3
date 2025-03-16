@@ -15,14 +15,19 @@ import {
 } from "react-bootstrap";
 import "./Header.css";
 import { useLocation } from "react-router-dom";
+import { Login } from "./Modal-login";
 
 export default function Header() {
   const [isFormHovered, setIsFormHovered] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const location = useLocation();
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
   // Handle scroll event to update header styles
   useEffect(() => {
@@ -95,7 +100,7 @@ export default function Header() {
                   <Dropdown.Item href="#profile">Profile</Dropdown.Item>
                   <Dropdown.Item href="#settings">Settings</Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item href="#logout">Logout</Dropdown.Item>
+                  <Dropdown.Item onClick={handleShow}>Login/SignUp</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
 
@@ -143,6 +148,8 @@ export default function Header() {
           <Toast.Body>You have new notifications!</Toast.Body>
         </Toast>
       </ToastContainer>
+
+      <Login show={showModal} handleClose={handleClose} />
     </>
   );
 }
