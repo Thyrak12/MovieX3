@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { Routes, Route } from 'react-router-dom';
 import Movie from './components/Movie';
 import Search from './components/Search';
+import Category from './components/Category';
 function App() {
   return (
     <>
