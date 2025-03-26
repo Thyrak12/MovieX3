@@ -61,13 +61,13 @@ export default function Header() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Latest</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="./MovieX3/Latest-Movies">Latest</Nav.Link>
 
               <NavDropdown title="Categories" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Drama</NavDropdown.Item>
-                <NavDropdown.Item href="#action5">Sci-Fi</NavDropdown.Item>
+                <NavDropdown.Item href="./MovieX3/Action-Movies">Action</NavDropdown.Item>
+                <NavDropdown.Item href="./MovieX3/Dramas">Drama</NavDropdown.Item>
+                <NavDropdown.Item href="./MovieX3/SciFi">Sci-Fi</NavDropdown.Item>
               </NavDropdown>
 
               <Nav.Link href="#">Favorite</Nav.Link>
