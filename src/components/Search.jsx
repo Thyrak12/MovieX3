@@ -1,4 +1,5 @@
 import Slide from './Slider'
+import Header from './Header';
 import { dataMovie } from './Data' 
 
 export default function Search() {
