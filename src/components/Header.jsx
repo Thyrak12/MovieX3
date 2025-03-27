@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState, useEffect } from "react";
+import { allMovie } from "./Data";
 import {
   Button,
   Container,
@@ -18,6 +19,7 @@ import { useLocation } from "react-router-dom";
 import { Login } from "./Modal-login";
 
 export default function Header() {
+
   const [isFormHovered, setIsFormHovered] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showToast, setShowToast] = useState(false);
@@ -51,6 +53,33 @@ export default function Header() {
     display: (location.pathname === "/" || isScrolled) ? "block" : "none", // Show on Home page or when scrolled
   };
 
+  // for getting values of searching
+  const [searchValue, setSearchValue] = useState("");
+  const [filteredMovies, setFilteredMovies] = useState([]);
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value.trim().toLowerCase();
+    setSearchValue(value);
+
+    if (value === "") {
+      setFilteredMovies([]);
+      return;
+    }
+    // Search logic updated to work with `allMovie`
+    const results = Object.keys(allMovie)
+      .filter((movieName) => movieName.toLowerCase().includes(value))
+      .map((name) => ({ name, url: allMovie[name].url }));
+
+    setFilteredMovies(results);
+  };
+
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    console.log("Search Value:", searchValue); // You can use the value here
+  };
+
+
   return (
     <>
       <Navbar expand="lg" className="navbar-dark" style={navbarStyle}>
@@ -61,13 +90,13 @@ export default function Header() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-              <Nav.Link href="#action1">Home</Nav.Link>
-              <Nav.Link href="#action2">Latest</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="./MovieX3/Latest-Movies">Latest</Nav.Link>
 
               <NavDropdown title="Categories" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">Drama</NavDropdown.Item>
-                <NavDropdown.Item href="#action5">Sci-Fi</NavDropdown.Item>
+                <NavDropdown.Item href="./MovieX3/Action-Movies">Action</NavDropdown.Item>
+                <NavDropdown.Item href="./MovieX3/Dramas">Drama</NavDropdown.Item>
+                <NavDropdown.Item href="./MovieX3/SciFi">Sci-Fi</NavDropdown.Item>
               </NavDropdown>
 
               <Nav.Link href="#">Favorite</Nav.Link>
@@ -109,6 +138,7 @@ export default function Header() {
                 id="form_button"
                 onMouseOver={() => setIsFormHovered(true)}
                 onMouseOut={() => setIsFormHovered(false)}
+                onSubmit={handleSearchSubmit} // Handle form submission
               >
                 <Form.Control
                   id="form_search"
@@ -117,12 +147,15 @@ export default function Header() {
                   placeholder="Search"
                   className="me-2"
                   aria-label="Search"
+                  value={searchValue} // Bind value to state
+                  onChange={handleSearchChange} // Update state on change
                 />
 
                 <Button
                   id="button"
                   style={{ outline: "none", border: "none" }}
                   variant="outline-light"
+                  type="submit" // Make button submit the form
                 >
                   <i className="bi bi-search"></i>
                 </Button>

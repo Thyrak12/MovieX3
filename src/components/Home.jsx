@@ -1,7 +1,6 @@
 import Carousel from './Carousel'
 import Slide from './Slider'
 import { dataMovie } from './Data'
-import Header from './Header'
 
 function Home() {
 
