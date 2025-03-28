@@ -17,12 +17,10 @@ function App() {
         {/* <Route path="/Latest-Movies" element={<DisplayByCategory category={"Latest Movies"} />} />
         <Route path="/Action-Movies" element={<DisplayByCategory category={"Action Movies"} />} />
         <Route path="/Dramas" element={<DisplayByCategory category={"Dramas"} />} />
-        <Route path="/Sci-Fi" element={<DisplayByCategory category={"Sci-Fi"} />} /> */}
+        <Route path="/Sci-Fi" element={<DisplayByCategory category={"Sci-Fi"} />} />
+        {/* Just add new routes below don't edit all */}
       </Routes>
       <Footer />
-      {/* <Header />
-      <Search /> */}
-      
     </>
   );
 }
