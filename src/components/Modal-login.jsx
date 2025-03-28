@@ -6,7 +6,7 @@ export function Login({ show, handleClose }) {
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Create Account</Modal.Title>
+        <Modal.Title>Login Account</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
@@ -31,8 +31,12 @@ export function Login({ show, handleClose }) {
             Submit
           </Button>
         </Form>
-        <div className="mt-3">        
-            Already have Account??
+        <div className="mt-3">     
+        <Modal>
+
+          <button className="createAcc">Not yet have account</button>
+        </Modal>   
+            
         </div>
       </Modal.Body>
       <Modal.Footer>
