@@ -13,7 +13,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
         <Route path="/:name" element={<Movie />} />
         <Route path="/Latest-Movies" element={<DisplayByCategory category={"Latest Movies"} />} />
         <Route path="/Action-Movies" element={<DisplayByCategory category={"Action Movies"} />} />
