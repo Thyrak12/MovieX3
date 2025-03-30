@@ -17,10 +17,10 @@ import {
 import "./Header.css";
 import { useLocation } from "react-router-dom";
 import { Login } from "./Modal-login";
+import SearchForm from "./SearchForm";
 
-export default function Header() {
+export default function Header({ isSearch, setIsSearch, setMovies }) {
 
-  const [isFormHovered, setIsFormHovered] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,32 +51,6 @@ export default function Header() {
     zIndex: 1000,
     boxShadow: isScrolled ? "0px 4px 10px rgba(0, 0, 0, 0.2)" : "none",
     display: (location.pathname === "/" || isScrolled) ? "block" : "none", // Show on Home page or when scrolled
-  };
-
-  // for getting values of searching
-  const [searchValue, setSearchValue] = useState("");
-  const [filteredMovies, setFilteredMovies] = useState([]);
-
-  const handleSearchChange = (e) => {
-    const value = e.target.value.trim().toLowerCase();
-    setSearchValue(value);
-
-    if (value === "") {
-      setFilteredMovies([]);
-      return;
-    }
-    // Search logic updated to work with `allMovie`
-    const results = Object.keys(allMovie)
-      .filter((movieName) => movieName.toLowerCase().includes(value))
-      .map((name) => ({ name, url: allMovie[name].url }));
-
-    setFilteredMovies(results);
-  };
-
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    console.log("Search Value:", searchValue); // You can use the value here
   };
 
 
@@ -132,34 +106,12 @@ export default function Header() {
                   <Dropdown.Item onClick={handleShow}>Login/SignUp</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-
-              <Form
-                className="d-flex"
-                id="form_button"
-                onMouseOver={() => setIsFormHovered(true)}
-                onMouseOut={() => setIsFormHovered(false)}
-                onSubmit={handleSearchSubmit} // Handle form submission
-              >
-                <Form.Control
-                  id="form_search"
-                  style={{ display: isFormHovered ? "block" : "none" }}
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                  value={searchValue} // Bind value to state
-                  onChange={handleSearchChange} // Update state on change
-                />
-
-                <Button
-                  id="button"
-                  style={{ outline: "none", border: "none" }}
-                  variant="outline-light"
-                  type="submit" // Make button submit the form
-                >
-                  <i className="bi bi-search"></i>
-                </Button>
-              </Form>
+              <SearchForm
+                setMovies={setMovies}
+                setIsSearch={setIsSearch}
+                isSearch={isSearch} // Pass isSearch if needed for conditional rendering in SearchForm
+                
+              />
             </div>
           </Navbar.Collapse>
         </Container>
@@ -186,3 +138,5 @@ export default function Header() {
     </>
   );
 }
+
+

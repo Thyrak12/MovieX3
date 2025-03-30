@@ -4,16 +4,26 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { Routes, Route } from 'react-router-dom';
 import Movie from './components/Movie';
-import Search from './components/Search';
 // import DisplayByCategory from './components/DisplayByCategory';
 import MovieCard from './components/Card';
+import { useState } from 'react';
+import DisplaySearch from './components/DisplaySearch';
+
 function App() {
+  const [movies, setMovies] = useState([]);
+  const [isSearch, setIsSearch] = useState(false);
+
   return (
     <>
-      <Header />
+      <Header
+        isSearch={isSearch}
+        setIsSearch={setIsSearch}
+        setMovies={setMovies}
+      />
+
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:name" element={<Movie />} />
+        <Route path="/" element={!isSearch ? <Home /> : <DisplaySearch movies={movies} />} />
+        {/* <Route path="/:name" element={<Movie />} /> */}
         {/* <Route path="/Latest-Movies" element={<DisplayByCategory category={"Latest Movies"} />} />
         <Route path="/Action-Movies" element={<DisplayByCategory category={"Action Movies"} />} />
         <Route path="/Dramas" element={<DisplayByCategory category={"Dramas"} />} />
