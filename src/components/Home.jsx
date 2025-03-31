@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { dataMovie } from './Data';  // Import your movie data
 import CustomMovies from './Slider';
-import { MovieCard } from './Card';  // Assuming MovieCard is a separate component to display each card
+import MovieCard  from './Card';  // Assuming MovieCard is a separate component to display each card
 import { Container, Form } from 'react-bootstrap';
 
 const Home = () => {
