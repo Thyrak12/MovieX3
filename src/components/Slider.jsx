@@ -35,7 +35,7 @@ const CustomMovies = ({ movieNames }) => {
   return (
     <div className='slide-container bg-dark'>
       {/* Navigate to a dynamic category page */}
-      <button className='button-movie'>
+      <button className='button-movie' onClick={() => navigate('./' + id)}>
         {id} ➩
       </button>
 

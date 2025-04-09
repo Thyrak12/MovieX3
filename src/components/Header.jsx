@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState, useEffect } from "react";
-import { allMovie } from "./Data";
+import { allMovie, dataMovie } from "./Data";
 import {
   Button,
   Container,
@@ -65,12 +65,12 @@ export default function Header({ isSearch, setIsSearch, setMovies }) {
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="./MovieX3/Latest-Movies">Latest</Nav.Link>
+              <Nav.Link href={"./MovieX3/" + dataMovie.find(e => e.id === "Latest Movies").id}>Latest</Nav.Link>
 
               <NavDropdown title="Categories" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="./MovieX3/Action-Movies">Action</NavDropdown.Item>
-                <NavDropdown.Item href="./MovieX3/Dramas">Drama</NavDropdown.Item>
-                <NavDropdown.Item href="./MovieX3/SciFi">Sci-Fi</NavDropdown.Item>
+                <NavDropdown.Item href={"./MovieX3/" + dataMovie.find(e => e.id === "Action Movies").id}>Action</NavDropdown.Item>
+                <NavDropdown.Item href={"./MovieX3/" + dataMovie.find(e => e.id === "Dramas").id}>Drama</NavDropdown.Item>
+                <NavDropdown.Item href={"./MovieX3/" + dataMovie.find(e => e.id === "Sci-Fi").id}>Sci-Fi</NavDropdown.Item>
               </NavDropdown>
 
               <Nav.Link href="#">Favorite</Nav.Link>

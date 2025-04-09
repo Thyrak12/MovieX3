@@ -1,10 +1,9 @@
 import { dataMovie } from './Data'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Navigation, Pagination, Scrollbar, A11y, Mousewheel } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
+import { Row, Col } from 'react-bootstrap';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './Swipe.css';
@@ -52,32 +51,17 @@ const CustomMovies = ({ movieNames }) => {
       </button>
 
       <div className='card-container'>
-        <Swiper
-          style={{ "--swiper-navigation-size": "30px" }}
-          modules={[Navigation, Pagination, Scrollbar, A11y, Mousewheel]}
-          spaceBetween={-10}
-          slidesPerView={6}
-          navigation
-          mousewheel
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            480: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-            1280: { slidesPerView: 5 },
-            1440: { slidesPerView: 6 },
-          }}
-        >
+        <Row xs={1} sm={2} md={3} lg={4} xl={5} xxl={6}>
           {movies.map((movie) => (
-            <SwiperSlide key={movie.id}>
-              <MovieCard 
-                onClick={() => navigate(`/${movie.name}`)}
-                url={movie.image?.medium || 'https://via.placeholder.com/300'}
-                title={movie.name}  // Fix: Correct title reference
-              />
-            </SwiperSlide>
+              <Col key={movie.id}>
+                <MovieCard 
+                  onClick={() => navigate(`/${movie.name}`)}
+                  url={movie.image?.medium || 'https://via.placeholder.com/300'}
+                  title={movie.name}  // Fix: Correct title reference
+                />
+              </Col>
           ))}
-        </Swiper>
+        </Row>
       </div>
     </div>
   );
