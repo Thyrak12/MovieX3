@@ -21,7 +21,6 @@ function App() {
         setIsSearch={setIsSearch}
         setMovies={setMovies}
       />
-
       <Routes>
         <Route path="/" element={!isSearch ? <Home /> : <DisplaySearch movies={movies} />} />
         <Route path="/:name" element={<Movie />} />
