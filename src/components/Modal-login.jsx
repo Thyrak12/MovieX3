@@ -17,7 +17,7 @@ export function Login({ show, handleClose }) {
     <>
       {!showCreateAccount ? (
         <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>Login Account</Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -38,7 +38,7 @@ export function Login({ show, handleClose }) {
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <div
                   className="CreateAcc"
-                  style={{ cursor: "pointer", color: "blue" }}
+                  style={{ cursor: "pointer", color: "yellow" }}
                   onClick={handleSwitchToCreateAccount}
                 >
                   Create Account??
@@ -58,7 +58,7 @@ export function Login({ show, handleClose }) {
         </Modal>
       ) : (
         <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
+          <Modal.Header>
             <Modal.Title>Create Account</Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -78,13 +78,13 @@ export function Login({ show, handleClose }) {
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" >
                 Create Account
               </Button>
             </Form>
             <div
               className="mt-3"
-              style={{ cursor: "pointer", color: "blue" }}
+              style={{ cursor: "pointer", color: "yellow" }}
               onClick={handleSwitchToLogin}
             >
               Already have an account? Login here.
